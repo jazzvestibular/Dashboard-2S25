@@ -693,25 +693,25 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     #engajamento_plataforma = engajamento_plataforma[engajamento_plataforma['Pontuação_Engajamento_Plataforma'] > 0]
     engajamento_plataforma['Data de conclusão'] = pd.to_datetime(engajamento_plataforma['Data de conclusão'], format='%d/%m/%Y %H:%M:%S', errors='coerce')
     engajamento_plataforma['Semana'] = engajamento_plataforma['Data de conclusão'].apply(lambda x: x.isocalendar()[1] if pd.notnull(x) else None)
-    engajamento_plataforma['Semana'] = engajamento_plataforma['Semana'] - 4 ## Ajuste
+    engajamento_plataforma['Semana'] = engajamento_plataforma['Semana'] - 31 ## Ajuste
     presenca_aulas['Data de conclusão'] = pd.to_datetime(presenca_aulas['Data'], format='%d/%m/%Y', errors='coerce')
     presenca_aulas['Semana'] = presenca_aulas['Data de conclusão'].apply(lambda x: x.isocalendar()[1] if pd.notnull(x) else None)
-    presenca_aulas['Semana'] = presenca_aulas['Semana'] - 4 ## Ajuste
+    presenca_aulas['Semana'] = presenca_aulas['Semana'] - 31 ## Ajuste
     presenca_mentoria['Data de conclusão'] = pd.to_datetime(presenca_mentoria['Data'], format='%d/%m/%Y', errors='coerce')
     presenca_mentoria['Semana'] = presenca_mentoria['Data de conclusão'].apply(lambda x: x.isocalendar()[1] if pd.notnull(x) else None)
-    presenca_mentoria['Semana'] = presenca_mentoria['Semana'] - 4 ## Ajuste
+    presenca_mentoria['Semana'] = presenca_mentoria['Semana'] - 31 ## Ajuste
     #presenca_nota_simulado = presenca_nota_simulado[presenca_nota_simulado['Pontuação_Presença_Simulado'] > 0]
     presenca_nota_simulado['Data de conclusão'] = presenca_nota_simulado['Data de conclusão'].str.replace(r'\s+', ' ', regex=True).str.strip()
     presenca_nota_simulado['Data de conclusão 2'] = pd.to_datetime(presenca_nota_simulado['Data de conclusão'], errors='coerce',infer_datetime_format=True)
     presenca_nota_simulado['Semana'] = presenca_nota_simulado['Data de conclusão 2'].apply(lambda x: x.isocalendar()[1] if pd.notnull(x) and x != '' else None)
-    presenca_nota_simulado['Semana'] = presenca_nota_simulado['Semana'] - 4 ## Ajuste
+    presenca_nota_simulado['Semana'] = presenca_nota_simulado['Semana'] - 31 ## Ajuste
     duvidas_monitoria['Data de conclusão'] = duvidas_monitoria['Data'].str.replace(r', às', ' ', regex=True).str.strip()
     duvidas_monitoria['Data de conclusão'] = pd.to_datetime(duvidas_monitoria['Data de conclusão'], format='%d/%m/%Y %H:%M:%S',errors='coerce')
     duvidas_monitoria['Semana'] = duvidas_monitoria['Data de conclusão'].apply(lambda x: x.isocalendar()[1] if pd.notnull(x) else None)
-    duvidas_monitoria['Semana'] = duvidas_monitoria['Semana'] - 4
+    duvidas_monitoria['Semana'] = duvidas_monitoria['Semana'] - 31
     presenca_aulas_2fase['Data de conclusão'] = pd.to_datetime(presenca_aulas_2fase['Data'], format='%d/%m/%Y', errors='coerce')
     presenca_aulas_2fase['Semana'] = presenca_aulas_2fase['Data de conclusão'].apply(lambda x: x.isocalendar()[1] if pd.notnull(x) else None)
-    presenca_aulas_2fase['Semana'] = presenca_aulas_2fase['Semana'] - 4 ## Ajuste
+    presenca_aulas_2fase['Semana'] = presenca_aulas_2fase['Semana'] - 31 ## Ajuste
     engajamento_plataforma_semana = engajamento_plataforma.groupby(['Nome do aluno(a)', 'Turma','Semana']).agg({'Pontuação_Engajamento_Plataforma': 'sum'}).reset_index()
     engajamento_plataforma_semana['Esfera'] = 'Engajamento na plataforma'
     engajamento_plataforma_semana.rename(columns = {'Pontuação_Engajamento_Plataforma':'Pontuação'}, inplace = True)
