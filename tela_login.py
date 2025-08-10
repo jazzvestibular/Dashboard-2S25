@@ -182,9 +182,9 @@ def mostrar_tela_login():
             st.session_state.Turma = Turma
             i = 0
             if i == 0:
-                #st.experimental_rerun()
+                st.experimental_rerun()
                 #st.request_rerun()
-                st.rerun()
+                #st.rerun()
 
                 i = i + 1
             return True, st.session_state.tipo_usuario, st.session_state.nome_usuario, st.session_state.Email, st.session_state.Turma
