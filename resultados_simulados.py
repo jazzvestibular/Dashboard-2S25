@@ -708,7 +708,20 @@ def cards_principais(nota_aluno, nota_media, acerto_aluno, acerto_media, vestibu
                     )
 
                     st.markdown('<div style="height: 20px;"></div>', unsafe_allow_html=True)
-                    if (vestibular == 'Semana 01' or vestibular == 'Esparta 3º' or vestibular == 'Esparta 2º'):
+
+                    if (vestibular == 'Semana 01'):
+
+                        st.markdown(
+                                f"""
+                                <div style="background-color: white; color: #9E089E; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; text-align: center; font-size: 36px; margin-bottom: 10px;">
+                                    <strong>{acerto_aluno} / 36</strong>
+                                </div>
+                                """,
+                                unsafe_allow_html=True
+                            )
+
+
+                    if (vestibular == 'Esparta 3º' or vestibular == 'Esparta 2º'):
                         
                         if (simulado == '1 Geral' or simulado == 0):
 
@@ -781,7 +794,7 @@ def cards_principais(nota_aluno, nota_media, acerto_aluno, acerto_media, vestibu
                         st.markdown(
                             f"""
                             <div style="background-color: white; color: #9E089E; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; text-align: center; font-size: 36px; margin-bottom: 10px;">
-                                <strong>{acerto_aluno} / 24</strong>
+                                <strong>{acerto_aluno} / 30</strong>
                             </div>
                             """,
                             unsafe_allow_html=True
