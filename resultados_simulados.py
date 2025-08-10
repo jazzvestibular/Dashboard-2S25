@@ -1245,7 +1245,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
     else:
         alunos = alunos[~alunos['Turma'].str.contains("Esparta")]
 
-    alunos_sn = ler_planilha("1CXPoZxZlZ4Uvu2DmW4njkqCcERdvNizQ2EfkWbhaTAc", "Inscritos!A1:E")
+    alunos_sn = ler_planilha("1F7sepzDX6VdYtUhCjClzJW280QYL_70GNLJFVwafYUk", "Inscritos!A1:E")
     alunos_sn['Nome'] = alunos_sn['Nome'].fillna('').astype(str)
     alunos_sn = alunos_sn[alunos_sn['Nome'] != '']
 
