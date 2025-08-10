@@ -1203,15 +1203,15 @@ def mostrar_gamificacao(nome, permissao, email, turma):
         semanas_selecionadas = st.slider(
             'Selecione o intervalo de semanas',
             min_value=int(min(semanas_disponiveis)),
-            max_value=int(max(semanas_disponiveis)),
-            value=(int(min(semanas_disponiveis)), int(max(semanas_disponiveis)))
+            max_value=max(int(max(semanas_disponiveis)), 2),
+            value=(int(min(semanas_disponiveis)), max(int(max(semanas_disponiveis)), 2))
         )
 
         data_hoje_brasilia, hora_atual_brasilia = dia_hora()
         semanas_selecionadas_str = ", ".join(map(str, semanas_selecionadas))
 
         min_semanas_disponiveis = int(min(semanas_disponiveis))
-        max_semanas_disponiveis = int(max(semanas_disponiveis))
+        max_semanas_disponiveis = max(int(max(semanas_disponiveis)), 2)
 
         if not (semanas_selecionadas[0] == min_semanas_disponiveis and semanas_selecionadas[1] == max_semanas_disponiveis):
 
