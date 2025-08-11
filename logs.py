@@ -19,17 +19,17 @@ def encontrar_ultima_linha_preenchida(service, spreadsheet_id, sheet_name):
 def escrever_planilha(SAMPLE_SPREADSHEET_ID, data_to_write, sheet_name):
 
     creds = None
-    if os.path.exists("token.json"):
-        creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+    if os.path.exists("token_gami.json"):
+        creds = Credentials.from_authorized_user_file("token_gami.json", SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                "credentials.json", SCOPES
+                "credentials_gami.json", SCOPES
             )
             creds = flow.run_local_server(port=8080)
-        with open("token.json", "w") as token:
+        with open("token_gami.json", "w") as token:
             token.write(creds.to_json())
 
     try:
@@ -54,6 +54,7 @@ def escrever_planilha(SAMPLE_SPREADSHEET_ID, data_to_write, sheet_name):
         print("Dados escritos na planilha com sucesso.")
 
     except HttpError as err:
+
         print("Ocorreu um erro ao escrever na planilha:", err)
 
 def escrever_planilha_pontos(SAMPLE_SPREADSHEET_ID, data_to_write, sheet_name):
