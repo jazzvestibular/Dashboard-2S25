@@ -563,9 +563,6 @@ def mostrar_gamificacao(nome, permissao, email, turma):
 
     alunos = ler_planilha("16IN1TyqZ2YXYRivDMPPZGspo5FpsGG53ZzWIk_07xLg", "Streamlit | Alunos!A1:E")
 
-    st.write(turma)
-    st.dataframe(alunos)
-
     if (turma is None or turma == "-"):
             alunos = alunos
 
