@@ -563,13 +563,15 @@ def mostrar_gamificacao(nome, permissao, email, turma):
 
     alunos = ler_planilha("16IN1TyqZ2YXYRivDMPPZGspo5FpsGG53ZzWIk_07xLg", "Streamlit | Alunos!A1:E")
 
+    st.write(turmas)
+    st.write(turma)
+    st.dataframe(alunos)
+
     if (turma is None or turma == "-"):
             alunos = alunos
 
             turmas = st.selectbox('Selecione a turma:', ['Extensivo','Esparta'])
-            st.write(turmas)
-            st.write(turma)
-            st.dataframe(alunos)
+
             if turmas == 'Extensivo':
                 alunos = alunos[~alunos['Turma'].str.contains("Esparta")]
             if turmas == 'Esparta':
