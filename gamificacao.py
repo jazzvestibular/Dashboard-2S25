@@ -567,7 +567,9 @@ def mostrar_gamificacao(nome, permissao, email, turma):
             alunos = alunos
 
             turmas = st.selectbox('Selecione a turma:', ['Extensivo','Esparta'])
-
+            st.write(turmas)
+            st.write(turma)
+            st.dataframe(alunos)
             if turmas == 'Extensivo':
                 alunos = alunos[~alunos['Turma'].str.contains("Esparta")]
             if turmas == 'Esparta':
