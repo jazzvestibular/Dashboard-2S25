@@ -662,7 +662,7 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     update_progress(60)
 
     presenca_mentoria = ler_planilha("17fFiBQ17apu9p5WJLdFz5E11d41wrWyylUPVxC7jozE", "Streamlit | Presença na mentoria!A1:F")
-
+    st.dataframe(presenca_mentoria)
     end_time = time.time()
     elapsed_time = end_time - start_time
     update_progress(70)
