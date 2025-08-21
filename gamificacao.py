@@ -661,8 +661,8 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     elapsed_time = end_time - start_time
     update_progress(60)
 
-    presenca_mentoria = ler_planilha("1QL4YDiH5U__uES-Pz-ShiCH-fhz81HZdtpT_NR6nEEY", "Streamlit | Presença na mentoria!A1:F")
-    
+    presenca_mentoria = ler_planilha("17fFiBQ17apu9p5WJLdFz5E11d41wrWyylUPVxC7jozE", "Streamlit | Presença na mentoria!A1:F")
+
     end_time = time.time()
     elapsed_time = end_time - start_time
     update_progress(70)
@@ -680,7 +680,7 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     update_progress(90)
     
     presenca_aulas_2fase = ler_planilha("1da_mnC8ycK8DtITuektoBRg6ne-_GkAK8Imsn1vdrsc", "Streamlit | Presença nas aulas | 2ª fase!A1:G10000")
-
+    
     engajamento_plataforma['Pontuação_Engajamento_Plataforma'] = engajamento_plataforma['Pontuação'].fillna(0).astype(int)
     presenca_aulas['Pontuação_Presença_Aulas'] = presenca_aulas['Pontuação'].fillna(0).astype(int)
     presenca_aulas = presenca_aulas[presenca_aulas['Pontuação_Presença_Aulas'] > 0]

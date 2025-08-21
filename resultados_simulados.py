@@ -427,7 +427,7 @@ def tabela_questoes(df):
 
     df = df.sort_values(by='Número da questão', ascending = True)
 
-    df = df.loc[df['Número da questão'] != 73]
+    df = df.loc[df['Número da questão'] != 61]
 
     st.markdown("""
                 <style>
@@ -816,7 +816,7 @@ def cards_principais(nota_aluno, nota_media, acerto_aluno, acerto_media, vestibu
                         st.markdown(
                             f"""
                             <div style="background-color: white; color: #9E089E; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; text-align: center; font-size: 36px; margin-bottom: 10px;">
-                                <strong>{acerto_aluno} / 24</strong>
+                                <strong>{acerto_aluno} / 15</strong>
                             </div>
                             """,
                             unsafe_allow_html=True
@@ -827,7 +827,7 @@ def cards_principais(nota_aluno, nota_media, acerto_aluno, acerto_media, vestibu
                         st.markdown(
                             f"""
                             <div style="background-color: white; color: #9E089E; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; text-align: center; font-size: 36px; margin-bottom: 10px;">
-                                <strong>{acerto_aluno} / 72</strong>
+                                <strong>{acerto_aluno} / 60</strong>
                             </div>
                             """,
                             unsafe_allow_html=True
@@ -1303,7 +1303,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         if (turma == 'Manhã' or turma == 'Tarde' or turma_aluno == 'Manhã' or turma_aluno == 'Tarde'):
 
-            simulados = ["Escolha o simulado"] + ['Simulado Semana 01']# + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Insper 04'] + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
+            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01']# + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Insper 04'] + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
 
         elif (turma == 'Esparta 2º' or turma_aluno == 'Esparta 2º'):
 
@@ -1702,7 +1702,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         base_resultados_simu_selecionado = base_resultados.copy()
         #base_resultados_simu_selecionado = base_resultados[base_resultados['Simulado'] == simulado_selecionado]
-        base_resultados_simu_selecionado = base_resultados_simu_selecionado[base_resultados_simu_selecionado['num_exercicio'] != "73"].reset_index(drop = True) 
+        base_resultados_simu_selecionado = base_resultados_simu_selecionado[base_resultados_simu_selecionado['num_exercicio'] != "61"].reset_index(drop = True) 
 
         auxiliar_aluno = base_resultados_simu_selecionado[base_resultados_simu_selecionado['aluno_nome'] == nome_selecionado].reset_index(drop = True)  
 
@@ -1718,7 +1718,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
             num_exercicio_atual = base_resultados_simu_selecionado['num_exercicio'][i]
 
             matriz_questoes = base_matriz[base_matriz['Simulado'] == simulado_atual]
-            matriz_questoes = matriz_questoes[matriz_questoes['num_exercicio'] != "73"]
+            matriz_questoes = matriz_questoes[matriz_questoes['num_exercicio'] != "61"]
 
             if turma_atual in [turma_eng12, turma_eng2, turma_cien12, turma_cien2, turma_eng, turma_cien, turma_nat]:
                 matriz_questoes = matriz_questoes[matriz_questoes['disciplina'] != 'Ciências Humanas']
@@ -1767,7 +1767,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
         base['Novo Nota na questão'] = 0.00
         base['Novo Valor da questão'] = base['Valor da questão']
 
-        base['Acerto'] = np.where((base['Certo ou errado'] == 'certo') & (base['Número da questão'] != 73), 1, 0)
+        base['Acerto'] = np.where((base['Certo ou errado'] == 'certo') & (base['Número da questão'] != 61), 1, 0)
         base['Novo Nota na questão'] = base['Acerto'] * base['Novo Valor da questão']
         base['Nota na questão'] = base['Acerto'] * base['Valor da questão']
 
@@ -2544,12 +2544,9 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                     with col3:
                         tabela_pontos(ingles_tabela_verde_ordenado, ingles_tabela_vermelho_ordenado)
             
-            if (len(resultados_ciencias_hum['Nome do aluno(a)']) != 0 or len(resultados_ciencias_nat['Nome do aluno(a)']) != 0):
+            if (len(resultados_ciencias_nat['Nome do aluno(a)']) != 0):
 
-                if resultados_gerais_aluno['Turma'][0] != turma_eng12 and resultados_gerais_aluno['Turma'][0] != turma_eng2 and resultados_gerais_aluno['Turma'][0] != turma_cien12 and resultados_gerais_aluno['Turma'][0] != turma_cien2 and resultados_gerais_aluno['Turma'][0] != turma_nat:
-                    ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências Humanas']
-                else:
-                    ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências da Natureza']
+                ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências Humanas']
 
                 ciencias_detalhes_media = ciencias_detalhes.groupby('Assunto').mean(['Acerto']).reset_index()
 
@@ -2598,25 +2595,6 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if simulado_selecionado != 'Simulado Matemática Básica':
 
-                    if len(resultados_ciencias_hum['Disciplina']) == 0:
-                        st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
-
-                        st.markdown(
-                                    """
-                                    <div style="background-color: rgba(158, 8, 158, 0.8); color: white; padding: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center; font-size: 24px;">
-                                        <strong>Ciências da Natureza</strong>
-                                    </div>
-                                    """,
-                                    unsafe_allow_html=True
-                                )
-                        
-                        html_br="""
-                            <br>
-                            """
-
-                        st.markdown(html_br, unsafe_allow_html=True)
-
-                    else:
                         st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
 
                         st.markdown(
@@ -2634,53 +2612,53 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                         st.markdown(html_br, unsafe_allow_html=True)
 
-                #resultados_gerais_disciplina3_fim.drop(columns='level_0', inplace=True)
-                resultados_gerais_disciplina3_fim = resultados_gerais_disciplina3_fim.sort_values(by = 'Acerto', ascending = False)
-                resultados_gerais_disciplina3_fim['Classificação'] = resultados_gerais_disciplina3_fim['Acerto'].rank(method='min', ascending=False).astype(int)
-                resultados_gerais_disciplina3_fim_aluno = resultados_gerais_disciplina3_fim[resultados_gerais_disciplina3_fim['Login do aluno(a)'] == login_aluno].reset_index(drop = True)
+                #resultados_gerais_disciplina3_hum.drop(columns='level_0', inplace=True)
+                resultados_gerais_disciplina3_hum = resultados_gerais_disciplina3_hum.sort_values(by = 'Acerto', ascending = False)
+                resultados_gerais_disciplina3_hum['Classificação'] = resultados_gerais_disciplina3_hum['Acerto'].rank(method='min', ascending=False).astype(int)
+                resultados_gerais_disciplina3_hum_aluno = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Login do aluno(a)'] == login_aluno].reset_index(drop = True)
 
                 if "Insper" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional Insper':
 
-                        cards_principais(int(round(resultados_ciencias_fim['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_fim['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                     else:
 
-                        resultados_gerais_disciplina_med_cie_20 = resultados_gerais_disciplina3_fim[resultados_gerais_disciplina3_fim['Fez questão'] > 20]
+                        resultados_gerais_disciplina_med_hum_20 = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Fez questão'] > 20]
 
-                        cards_principais(int(round(resultados_ciencias_fim['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie_20['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_fim['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_fim_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_fim['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
 
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
                     
-                        cards_principais(int(round(resultados_ciencias_fim['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_fim['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
 
-                        resultados_gerais_disciplina_med_cie_10 = resultados_gerais_disciplina3_fim[resultados_gerais_disciplina3_fim['Fez questão'] > 10]
+                        resultados_gerais_disciplina_med_hum_10 = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Fez questão'] > 10]
 
-                        cards_principais(int(round(resultados_ciencias_fim['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie_10['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_fim['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_fim_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_fim['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_10['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
 
 
                 if "Simulado 0" in simulado_selecionado:
 
                     if (turma == 'Esparta 3º' or turma_jazz[0] == 'Esparta 3º 1' or turma_jazz[0] == 'Esparta 3º 2'):
 
-                        cards_principais(int(round(resultados_ciencias_fim['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_fim['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                     if (turma == 'Esparta 2º' or turma_jazz[0] == 'Esparta 2º'):
 
-                        cards_principais(int(round(resultados_ciencias_fim['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_fim['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_cie['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
-                        criar_histograma_acertos(resultados_gerais_disciplina3_fim, nome_aluno3, 24)
+                        criar_histograma_acertos(resultados_gerais_disciplina3_hum, nome_aluno3, 24)
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
 
-                    criar_histograma_acertos(resultados_gerais_disciplina3_fim, nome_aluno3, 15)
+                    criar_histograma_acertos(resultados_gerais_disciplina3_hum, nome_aluno3, 15)
 
                 with st.container():
                     col1, col2, col3 = st.columns([5,0.1,2.5])
@@ -2688,6 +2666,132 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                         tabela_assuntos(ciencias_tabela3)
                     with col3:
                         tabela_pontos(ciencias_tabela_verde_ordenado, ciencias_tabela_vermelho_ordenado)
+
+            
+            if (len(resultados_ciencias_hum['Nome do aluno(a)']) != 0):
+
+                ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências da Natureza']
+
+                ciencias_detalhes_media = ciencias_detalhes.groupby('Assunto').mean(['Acerto']).reset_index()
+
+                ciencias_aluno = ciencias_detalhes[ciencias_detalhes['Login do aluno(a)'] == login_aluno]
+
+                ciencias_aluno_media = ciencias_aluno.groupby('Assunto').mean(['Acerto']).reset_index()
+                ciencias_aluno_media2 = ciencias_aluno.groupby('Assunto').count().reset_index()
+                ciencias_aluno_media3 = pd.DataFrame()
+                ciencias_aluno_media3['Assunto'] = ciencias_aluno_media2['Assunto']
+                ciencias_aluno_media3['Número da questão'] = ciencias_aluno_media2['Número da questão']
+
+                ciencias_tabela = pd.merge(ciencias_aluno_media,ciencias_detalhes_media, on = 'Assunto', how = 'inner')
+                ciencias_tabela2 = ciencias_tabela.drop(columns = ['Valor da questão_x','Valor da questão_y','Nota na questão_x','Nota na questão_y'])
+
+                ciencias_tabela2.rename(columns = {'Acerto_x':'Resultado Individual decimal','Acerto_y':'Resultado Geral decimal'}, inplace = True)
+                ciencias_tabela2['Resultado Geral'] = ''
+                ciencias_tabela2['Resultado Individual'] = ''
+                for i in range(len(ciencias_tabela2['Assunto'])):
+                    ciencias_tabela2['Resultado Geral'][i] = "{0:.0%}".format(ciencias_tabela2['Resultado Geral decimal'][i])
+                    ciencias_tabela2['Resultado Individual'][i] = "{0:.0%}".format(ciencias_tabela2['Resultado Individual decimal'][i])
+                ciencias_tabela3 = pd.merge(ciencias_tabela2,ciencias_aluno_media3, on = 'Assunto', how = 'inner')
+                    
+                ciencias_tabela3.rename(columns = {'Número da questão':'Quantidade de questões'}, inplace = True)
+                ciencias_tabela3 = ciencias_tabela3[['Assunto','Quantidade de questões','Resultado Individual', 'Resultado Geral','Resultado Individual decimal', 'Resultado Geral decimal']]
+                ciencias_tabela3['Status'] = ''
+                for i in range(len(ciencias_tabela3['Assunto'])):
+                    if ciencias_tabela3['Resultado Individual decimal'][i] == 0:
+                        ciencias_tabela3['Status'][i] = "🔴" 
+                    elif ciencias_tabela3['Resultado Individual decimal'][i] >= ciencias_tabela3['Resultado Geral decimal'][i]:
+                        ciencias_tabela3['Status'][i] = "🟢"
+                    elif ciencias_tabela3['Resultado Individual decimal'][i] - ciencias_tabela3['Resultado Geral decimal'][i] > - 0.25:
+                        ciencias_tabela3['Status'][i] = "🟡"
+                    else:
+                        ciencias_tabela3['Status'][i] = "🔴"
+                ciencias_tabela3['Diferença'] = ''
+                for i in range(len(ciencias_tabela3['Assunto'])):
+                    ciencias_tabela3['Diferença'][i] = ciencias_tabela3['Resultado Individual decimal'][i] - ciencias_tabela3['Resultado Geral decimal'][i]
+
+                ciencias_tabela_ordenado = ciencias_tabela3.sort_values(by = 'Diferença')
+
+                ciencias_tabela_verde = ciencias_tabela_ordenado[ciencias_tabela_ordenado['Status'] == '🟢']
+                ciencias_tabela_verde_ordenado = ciencias_tabela_verde.sort_values(by = 'Diferença', ascending = False).reset_index(drop = True)
+
+                ciencias_tabela_vermelho = ciencias_tabela_ordenado[ciencias_tabela_ordenado['Status'] == '🔴']
+                ciencias_tabela_vermelho_ordenado = ciencias_tabela_vermelho.sort_values(by = 'Diferença', ascending = True).reset_index(drop = True)
+
+                if simulado_selecionado != 'Simulado Matemática Básica':
+
+                        st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
+
+                        st.markdown(
+                                    """
+                                    <div style="background-color: rgba(158, 8, 158, 0.8); color: white; padding: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; text-align: center; font-size: 24px;">
+                                        <strong>Ciências da Natureza</strong>
+                                    </div>
+                                    """,
+                                    unsafe_allow_html=True
+                                )
+                        
+                        html_br="""
+                            <br>
+                            """
+
+                        st.markdown(html_br, unsafe_allow_html=True)
+
+                #resultados_gerais_disciplina3_nat.drop(columns='level_0', inplace=True)
+                resultados_gerais_disciplina3_nat = resultados_gerais_disciplina3_nat.sort_values(by = 'Acerto', ascending = False)
+                resultados_gerais_disciplina3_nat['Classificação'] = resultados_gerais_disciplina3_nat['Acerto'].rank(method='min', ascending=False).astype(int)
+                resultados_gerais_disciplina3_nat_aluno = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Login do aluno(a)'] == login_aluno].reset_index(drop = True)
+
+                if "Insper" in simulado_selecionado:
+
+                    if simulado_selecionado != 'Simulado Nacional Insper':
+
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+
+                    else:
+
+                        resultados_gerais_disciplina_med_nat_20 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 20]
+
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
+
+                if "FGV" in simulado_selecionado:
+
+                    if simulado_selecionado != 'Simulado Nacional FGV':
+                    
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+
+                    else:
+
+                        resultados_gerais_disciplina_med_nat_10 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 10]
+
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_10['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
+
+
+                if "Simulado 0" in simulado_selecionado:
+
+                    if (turma == 'Esparta 3º' or turma_jazz[0] == 'Esparta 3º 1' or turma_jazz[0] == 'Esparta 3º 2'):
+
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
+
+                    if (turma == 'Esparta 2º' or turma_jazz[0] == 'Esparta 2º'):
+
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
+
+                if simulado_selecionado == 'Simulado Nacional Insper':
+
+                        criar_histograma_acertos(resultados_gerais_disciplina3_nat, nome_aluno3, 24)
+
+                if simulado_selecionado == 'Simulado Nacional FGV':
+
+                    criar_histograma_acertos(resultados_gerais_disciplina3_nat, nome_aluno3, 15)
+
+                with st.container():
+                    col1, col2, col3 = st.columns([5,0.1,2.5])
+                    with col1:
+                        tabela_assuntos(ciencias_tabela3)
+                    with col3:
+                        tabela_pontos(ciencias_tabela_verde_ordenado, ciencias_tabela_vermelho_ordenado)
+
+     
 
             
             if (simulado_selecionado[:15] == 'Simulado Insper' or simulado_selecionado[:12] == 'Simulado FGV' or simulado_selecionado[:17] == 'Simulado Nacional'):
@@ -2895,7 +2999,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                 base_resultados_disc_fgv2['Novo Nota na questão'] = base_resultados_disc_fgv2['Nota'].apply(lambda x: float(str(x).replace(".", "").replace(",", ".")))
                 base_resultados_disc_fgv2['Novo Valor da questão'] = base_resultados_disc_fgv2['Valor da questão']
 
-                #base_resultados_disc_fgv2 ['Acerto'] = np.where((base_resultados_disc_fgv2 ['Certo ou errado'] == 'certo') & (base_resultados_disc_fgv2 ['Número da questão'] != 73), 1, 0)
+                #base_resultados_disc_fgv2 ['Acerto'] = np.where((base_resultados_disc_fgv2 ['Certo ou errado'] == 'certo') & (base_resultados_disc_fgv2 ['Número da questão'] != 61), 1, 0)
                 #base_resultados_disc_fgv2 ['Novo Nota na questão'] = base_resultados_disc_fgv2 ['Acerto'] * base_resultados_disc_fgv2 ['Novo Valor da questão']
                 #base_resultados_disc_fgv2 ['Nota na questão'] = base_resultados_disc_fgv2 ['Acerto'] * base_resultados_disc_fgv2 ['Valor da questão']
 
