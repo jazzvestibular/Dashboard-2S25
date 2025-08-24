@@ -1303,7 +1303,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         if (turma == 'Manhã' or turma == 'Tarde' or turma_aluno == 'Manhã' or turma_aluno == 'Tarde'):
 
-            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01']# + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Insper 04'] + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
+            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01']# + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Insper 04'] + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
 
         elif (turma == 'Esparta 2º' or turma_aluno == 'Esparta 2º'):
 
@@ -2544,7 +2544,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                     with col3:
                         tabela_pontos(ingles_tabela_verde_ordenado, ingles_tabela_vermelho_ordenado)
             
-            if (len(resultados_ciencias_nat['Nome do aluno(a)']) != 0):
+            if (len(resultados_ciencias_nat['Nome do aluno(a)']) != 0 or 'FGV' in simulado_selecionado):
 
                 ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências Humanas']
 
@@ -2668,7 +2668,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                         tabela_pontos(ciencias_tabela_verde_ordenado, ciencias_tabela_vermelho_ordenado)
 
             
-            if (len(resultados_ciencias_hum['Nome do aluno(a)']) != 0):
+            if (len(resultados_ciencias_hum['Nome do aluno(a)']) != 0 and "Insper" in simulado_selecionado):
 
                 ciencias_detalhes = base_alunos_fizeram[base_alunos_fizeram['Disciplina'] == 'Ciências da Natureza']
 
@@ -2752,7 +2752,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                         resultados_gerais_disciplina_med_nat_20 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 20]
 
                         cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
-
+                '''
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
@@ -2764,7 +2764,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                         resultados_gerais_disciplina_med_nat_10 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 10]
 
                         cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_10['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
-
+                '''
 
                 if "Simulado 0" in simulado_selecionado:
 
