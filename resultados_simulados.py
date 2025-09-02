@@ -2913,7 +2913,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if "FGV" in simulado_selecionado:
         
-                        cards_principais(int(round(200+0.8*redacao_aluno_media['Nota na questão'].sum(),1)), int(round(200+0.8*200*redacao_tabela3['Resultado Geral decimal'].sum(),0)), 0, 0, 'FGV', '0', '0', 0)
+                        cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(round(redacao_tabela3['Resultado Geral decimal'].mean(),0)), 0, 0, 'FGV', '0', '0', 0)
 
                     if simulado_selecionado == 'Simulado Nacional Insper':
 
