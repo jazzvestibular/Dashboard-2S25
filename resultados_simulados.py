@@ -1779,13 +1779,15 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
         percentage_text.text("60%")
 
         resultados_gerais2 = resultados_gerais.groupby(['Turma','Nome do aluno(a)','Login do aluno(a)','Simulado','Estratégia','Turma Jazz']).sum().reset_index()
+
         resultados_gerais2_aux = resultados_gerais2.copy()
 
         for i in range(len(resultados_gerais2_aux['Login do aluno(a)'])):
-            resultados_gerais2_aux['Nota na questão'][i] = 1.25*resultados_gerais2_aux['Nota na questão'][i]
-            resultados_gerais2_aux['Novo Nota na questão'][i] = 1.25*resultados_gerais2_aux['Novo Nota na questão'][i]
+            if resultados_gerais2_aux['Simulado'][i][:15] == 'Simulado Insper':
+                resultados_gerais2_aux['Nota na questão'][i] = (4/3)*resultados_gerais2_aux['Nota na questão'][i]
+                resultados_gerais2_aux['Novo Nota na questão'][i] = (4/3)*resultados_gerais2_aux['Novo Nota na questão'][i]
 
-        resultados_gerais3 = resultados_gerais2_aux.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)   
+        resultados_gerais3 = resultados_gerais2_aux.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)  
 
         progress_bar.progress(0.8)
         percentage_text.text("80%")
@@ -2046,13 +2048,13 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if simulado_selecionado != 'Simulado Nacional FGV':
 
-                    cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0],1)/10), int(round(truncar(0.8*resultados_gerais5['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'FGV Total', '0', '0', 0)
+                    cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)/10), int(round(truncar(resultados_gerais5['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'FGV Total', '0', '0', 0)
 
                 else:
 
                     resultados_gerais5_40 = resultados_gerais5[resultados_gerais5['Fez questão'] > 40]
 
-                    cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais5_40['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_40['Acerto'].mean(),0)),'Simulado Nacional FGV 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
+                    cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais5_40['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_40['Acerto'].mean(),0)),'Simulado Nacional FGV 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
                     
 
             if "Simulado 0" in simulado_selecionado:
@@ -2061,7 +2063,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if "Simulado 01" in simulado_selecionado:
                     
-                        cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0],1)), int(round(truncar(0.8*resultados_gerais5['Novo Nota na questão'].mean(),-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Geral')
+                        cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)), int(round(truncar(resultados_gerais5['Novo Nota na questão'].mean(),-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Geral')
 
                     else:
                         
@@ -2248,7 +2250,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
-                    
+                        
                         cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0]/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
@@ -2802,13 +2804,17 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                 base_redacao['Nota na questão'] = base_redacao['Nota na questão'].replace('', np.nan)
                 base_redacao['Valor da questão'] = base_redacao['Valor da questão'].replace('', np.nan)
 
-                    # Converter para float, ignorando os NaNs
-                base_redacao['Nota na questão'] = pd.to_numeric(base_redacao['Nota na questão'], errors='coerce')
-                base_redacao['Valor da questão'] = pd.to_numeric(base_redacao['Valor da questão'], errors='coerce')
+                base_redacao['Nota na questão'] = (
+                base_redacao['Nota na questão'].str.replace(',', '.', regex=False).astype(float)
+                )
+
+                base_redacao['Valor da questão'] = (
+                base_redacao['Valor da questão'].str.replace(',', '.', regex=False).astype(float)
+                )
 
                 for i in range(len(base_redacao)):
                     base_redacao['Acerto'][i] = base_redacao['Nota na questão'][i]/base_redacao['Valor da questão'][i]
-
+                
                 base_redacao2_aux = base_redacao[base_redacao['Nota na questão'] >= 0]
                 base_redacao_aux2 = base_redacao[base_redacao['Nota na questão'] > 0]
                     
@@ -2856,6 +2862,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                     redacao_tabela3['Diferença'][i] = redacao_tabela3['Resultado Individual decimal'][i] - redacao_tabela3['Resultado Geral decimal'][i]
                     
                 redacao_tabela_ordenado = redacao_tabela3.sort_values(by = 'Diferença')
+                redacao_tabela_ordenado = redacao_tabela_ordenado.dropna()
 
                 redacao_tabela_verde = redacao_tabela_ordenado[redacao_tabela_ordenado['Status'] == '🟢']
                 redacao_tabela_verde_ordenado = redacao_tabela_verde.sort_values(by = 'Diferença', ascending = False).reset_index(drop = True)
@@ -2865,16 +2872,16 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 base_redacao_disciplina = base_redacao2.groupby(['Login do aluno(a)','Nome do aluno(a)']).sum().reset_index()
                     
-                for i in range(len(base_redacao_disciplina['Login do aluno(a)'])):
-                    if base_redacao_disciplina['Nota na questão'][i] > 0:
-                        base_redacao_disciplina['Nota na questão'][i] = 200 + 0.8*base_redacao_disciplina['Nota na questão'][i]
+                #for i in range(len(base_redacao_disciplina['Login do aluno(a)'])):
+                #    if base_redacao_disciplina['Nota na questão'][i] > 0:
+                #        base_redacao_disciplina['Nota na questão'][i] = 200 + 0.8*base_redacao_disciplina['Nota na questão'][i]
                 #base_redacao_disciplina['Nota na questão'] = 200 + 0.8*base_redacao_disciplina['Nota na questão']
 
                 base_redacao_disciplina2 = base_redacao_disciplina.sort_values(by = 'Nota na questão', ascending = False).reset_index()
 
                 for i in range(len(redacao_aluno_media['Nota na questão'])):
                     if redacao_aluno_media['Nota na questão'][i] == 0:
-                        redacao_aluno_media['Nota na questão'][i] = - 50
+                        redacao_aluno_media['Nota na questão'][i] = 0
 
                 if len(redacao_tabela3['Status']) != 0:
 
@@ -2918,6 +2925,8 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                     if simulado_selecionado == 'Simulado Nacional Insper':
 
                         criar_histograma_acertos(resultados_gerais_redacao, nome_aluno3, 1000)
+
+                    redacao_tabela3 = redacao_tabela3.dropna()
 
                     with st.container():
                             col1, col2, col3 = st.columns([5,0.1,2.5])
