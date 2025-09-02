@@ -1786,6 +1786,9 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
             if resultados_gerais2_aux['Simulado'][i][:15] == 'Simulado Insper':
                 resultados_gerais2_aux['Nota na questão'][i] = (4/3)*resultados_gerais2_aux['Nota na questão'][i]
                 resultados_gerais2_aux['Novo Nota na questão'][i] = (4/3)*resultados_gerais2_aux['Novo Nota na questão'][i]
+            elif resultados_gerais2_aux['Simulado'][i][:15] == 'Simulado Semana':
+                resultados_gerais2_aux['Nota na questão'][i] = (1.25)*resultados_gerais2_aux['Nota na questão'][i]
+                resultados_gerais2_aux['Novo Nota na questão'][i] = (1.25)*resultados_gerais2_aux['Novo Nota na questão'][i]
 
         resultados_gerais3 = resultados_gerais2_aux.sort_values(by = 'Nota na questão', ascending = False).reset_index(drop = True)  
 
