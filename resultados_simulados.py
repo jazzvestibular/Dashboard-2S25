@@ -660,7 +660,7 @@ def cards_principais(nota_aluno, nota_media, acerto_aluno, acerto_media, vestibu
                     st.markdown(
                             f"""
                             <div style="background-color: white; color: #9E089E; padding: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; text-align: center; font-size: 36px; margin-bottom: 10px;">
-                                <strong>{nota_aluno} / 1000</strong>
+                                <strong>{nota_aluno} / 100</strong>
                             </div>
                             """,
                             unsafe_allow_html=True
@@ -2034,25 +2034,25 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if simulado_selecionado != 'Simulado Nacional Insper':
 
-                    cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)), int(round(truncar(resultados_gerais5['Novo Nota na questão'].mean(),-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'Insper Total', '0', '0', 0)
+                    cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)/10), int(round(truncar(resultados_gerais5['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'Insper Total', '0', '0', 0)
 
                 else:
 
                     resultados_gerais5_60 = resultados_gerais5[resultados_gerais5['Fez questão'] > 60]
 
-                    cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)), int(round(truncar(resultados_gerais5_60['Novo Nota na questão'].mean(),-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_60['Acerto'].mean(),0)),'Simulado Nacional Insper 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
+                    cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)/10), int(round(truncar(resultados_gerais5_60['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_60['Acerto'].mean(),0)),'Simulado Nacional Insper 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
 
             if "FGV" in simulado_selecionado:
 
                 if simulado_selecionado != 'Simulado Nacional FGV':
 
-                    cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0],1)), int(round(truncar(0.8*resultados_gerais5['Novo Nota na questão'].mean(),-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'FGV Total', '0', '0', 0)
+                    cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0],1)/10), int(round(truncar(0.8*resultados_gerais5['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'FGV Total', '0', '0', 0)
 
                 else:
 
                     resultados_gerais5_40 = resultados_gerais5[resultados_gerais5['Fez questão'] > 40]
 
-                    cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0],1)), int(round(truncar(resultados_gerais5_40['Novo Nota na questão'].mean(),-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_40['Acerto'].mean(),0)),'Simulado Nacional FGV 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
+                    cards_principais(int(round(0.8*resultados_gerais_aluno['Novo Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais5_40['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_40['Acerto'].mean(),0)),'Simulado Nacional FGV 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
                     
 
             if "Simulado 0" in simulado_selecionado:
@@ -2073,7 +2073,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
             
             if "Semana 01" in simulado_selecionado:
 
-                cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0]/1.25,1)), int(round(truncar(resultados_gerais5['Novo Nota na questão'].mean(),-1))/1.25), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'Semana 01', '0', '0', 0)
+                cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0]/12.5,1)), int(round(truncar(resultados_gerais5['Novo Nota na questão'].mean()/12.5,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5['Acerto'].mean(),0)),'Semana 01', '0', '0', 0)
 
             if simulado_selecionado == 'Simulado Nacional Insper':
 
@@ -2237,40 +2237,40 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if simulado_selecionado != 'Simulado Nacional Insper':
 
-                        cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                        cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0]/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_mat_20 = resultados_gerais_disciplina3_mat[resultados_gerais_disciplina3_mat['Fez questão'] > 20]
 
-                        cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_20['Nota na questão'].mean(),-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_mat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_mat['Classificação']))), 0)              
+                        cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_mat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_mat['Classificação']))), 0)              
 
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
                     
-                        cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+                        cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0]/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_mat_10 = resultados_gerais_disciplina3_mat[resultados_gerais_disciplina3_mat['Fez questão'] > 10]
 
-                        cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_10['Nota na questão'].mean(),-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_mat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_mat['Classificação']))), 0)              
+                        cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat_10['Nota na questão'].mean()/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_mat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_mat['Classificação']))), 0)              
 
 
                 if "Simulado 0" in simulado_selecionado:
 
                     if (turma == 'Esparta 3º' or turma_jazz[0] == 'Esparta 3º 1' or turma_jazz[0] == 'Esparta 3º 2'):
 
-                        cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Matemática')
+                        cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0]/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Matemática')
 
                     if (turma == 'Esparta 2º' or turma_jazz[0] == 'Esparta 2º'):
 
-                        cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Matemática')
+                        cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0]/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Matemática')
 
                 if "Semana 01" in simulado_selecionado:
 
-                    cards_principais(int(round(resultados_matematica['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0],-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Semana 01 Matemática', '0', '0', 0)
+                    cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Nota na questão'][0]/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat['Acerto'][0],-1),0)),'Semana 01 Matemática', '0', '0', 0)
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
@@ -2363,25 +2363,25 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if simulado_selecionado != 'Simulado Nacional Insper':
 
-                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0]/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_lin_20 = resultados_gerais_disciplina3_lin[resultados_gerais_disciplina3_lin['Fez questão'] > 20]
 
-                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_20['Nota na questão'].mean(),-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lin_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lin['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lin_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lin['Classificação']))), 0)      
 
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
                     
-                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0]/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_lin_10 = resultados_gerais_disciplina3_lin[resultados_gerais_disciplina3_lin['Fez questão'] > 10]
 
-                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_10['Nota na questão'].mean(),-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lin_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lin['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin_10['Nota na questão'].mean()/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lin_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lin['Classificação']))), 0)      
 
 
 
@@ -2389,15 +2389,15 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if (turma == 'Esparta 3º' or turma_jazz[0] == 'Esparta 3º 1' or turma_jazz[0] == 'Esparta 3º 2'):
 
-                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Linguagens')
+                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0]/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Linguagens')
 
                     if (turma == 'Esparta 2º' or turma_jazz[0] == 'Esparta 2º'):
 
-                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Linguagens')
+                        cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0]/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Linguagens')
 
                 if "Semana 01" in simulado_selecionado:
 
-                    cards_principais(int(round(resultados_linguagens['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0],-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Semana 01 Linguagens', '0', '0', 0)
+                    cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Nota na questão'][0]/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin['Acerto'][0],-1),0)),'Semana 01 Linguagens', '0', '0', 0)
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
@@ -2426,19 +2426,19 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if "Insper" in simulado_selecionado:
 
-                    cards_principais(int(round(resultados_lingua_port['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Nota na questão'][0],-1),0)), int(round(resultados_lingua_port['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                    cards_principais(int(round(resultados_lingua_port['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Nota na questão'][0]/10,-1),0)), int(round(resultados_lingua_port['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
                     
-                        cards_principais(int(round(resultados_lingua_port['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Nota na questão'][0],-1),0)), int(round(resultados_lingua_port['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+                        cards_principais(int(round(resultados_lingua_port['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Nota na questão'][0]/10,-1),0)), int(round(resultados_lingua_port['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_lp_10 = resultados_gerais_disciplina3_lp[resultados_gerais_disciplina3_lp['Fez questão'] > 10]
 
-                        cards_principais(int(round(resultados_lingua_port['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp_10['Nota na questão'].mean(),-1),0)), int(round(resultados_lingua_port['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lp_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lp['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_lingua_port['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lp_10['Nota na questão'].mean()/10,-1),0)), int(round(resultados_lingua_port['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lp_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lp_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lp['Classificação']))), 0)      
 
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
@@ -2518,19 +2518,19 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                 
                 if "Insper" in simulado_selecionado:
 
-                    cards_principais(int(round(resultados_ingles['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Nota na questão'][0],-1),0)), int(round(resultados_ingles['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                    cards_principais(int(round(resultados_ingles['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Nota na questão'][0]/10,-1),0)), int(round(resultados_ingles['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
                     
-                        cards_principais(int(round(resultados_ingles['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Nota na questão'][0],-1),0)), int(round(resultados_ingles['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+                        cards_principais(int(round(resultados_ingles['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Nota na questão'][0]/10,-1),0)), int(round(resultados_ingles['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_ing_10 = resultados_gerais_disciplina3_ing[resultados_gerais_disciplina3_ing['Fez questão'] > 10]
 
-                        cards_principais(int(round(resultados_ingles['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing_10['Nota na questão'].mean(),-1),0)), int(round(resultados_ingles['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_ing_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_ing['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_ingles['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_ing_10['Nota na questão'].mean()/10,-1),0)), int(round(resultados_ingles['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_ing_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_ing_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_ing['Classificação']))), 0)      
 
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
@@ -2621,36 +2621,36 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if simulado_selecionado != 'Simulado Nacional Insper':
 
-                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_hum_20 = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Fez questão'] > 20]
 
-                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
 
                 if "FGV" in simulado_selecionado:
 
                     if simulado_selecionado != 'Simulado Nacional FGV':
                     
-                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'FGV', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_hum_10 = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Fez questão'] > 10]
 
-                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_10['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum_10['Nota na questão'].mean()/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_10['Acerto'].mean(),-1),0)),'Simulado Nacional FGV 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
 
 
                 if "Simulado 0" in simulado_selecionado:
 
                     if (turma == 'Esparta 3º' or turma_jazz[0] == 'Esparta 3º 1' or turma_jazz[0] == 'Esparta 3º 2'):
 
-                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                     if (turma == 'Esparta 2º' or turma_jazz[0] == 'Esparta 2º'):
 
-                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
+                        cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
@@ -2745,13 +2745,13 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if simulado_selecionado != 'Simulado Nacional Insper':
 
-                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                     else:
 
                         resultados_gerais_disciplina_med_nat_20 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 20]
 
-                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Nota na questão'].mean(),-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
                 '''
                 if "FGV" in simulado_selecionado:
 
@@ -2770,11 +2770,11 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     if (turma == 'Esparta 3º' or turma_jazz[0] == 'Esparta 3º 1' or turma_jazz[0] == 'Esparta 3º 2'):
 
-                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 3º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                     if (turma == 'Esparta 2º' or turma_jazz[0] == 'Esparta 2º'):
 
-                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0],-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
+                        cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
@@ -2906,10 +2906,10 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                         if simulado_selecionado != 'Simulado Nacional Insper':
 
-                            cards_principais(int(round(200+0.8*redacao_aluno_media['Nota na questão'].sum(),1)), int(round(200+0.8*200*redacao_tabela3['Resultado Geral decimal'].sum(),0)), 0, 0, 'Insper', '0', '0', 0)
+                            cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(100*round(redacao_tabela3['Resultado Geral decimal'].mean(),2)), 0, 0, 'Insper', '0', '0', 0)
                         else:
 
-                            cards_principais(int(round(200+0.8*redacao_aluno_media['Nota na questão'].sum(),1)), int(round(200+0.8*200*redacao_tabela3['Resultado Geral decimal'].sum(),0)), 0, 0, 'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_redacao_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_redacao['Classificação']))), 0)              
+                            cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(100*round(redacao_tabela3['Resultado Geral decimal'].mean(),1)), 0, 0, 'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_redacao_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_redacao['Classificação']))), 0)              
 
                     if "FGV" in simulado_selecionado:
         
