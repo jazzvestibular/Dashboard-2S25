@@ -443,8 +443,9 @@ def tabela_questoes(df):
                     <thead>
                         <tr style="background-color: rgba(158, 8, 158, 0.8); color: white; font-weight: bold;">
                             <th style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-top-left-radius: 10px;border-right: 1px solid rgba(158, 8, 158, 0.8);border-left: 0px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Questão</th>
-                            <th style="width: 250px; min-width: 250px; max-width: 250px; text-align: center;border-right: 1px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Área do conhecimento</th>
-                            <th style="width: 350px; min-width: 350px; max-width: 350px; text-align: center;border-right: 1px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Assunto</th>
+                            <th style="width: 200px; min-width: 200px; max-width: 200px; text-align: center;border-right: 1px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Área do conhecimento</th>
+                            <th style="width: 300px; min-width: 300px; max-width: 300px; text-align: center;border-right: 1px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Assunto</th>
+                            <th style="width: 150px; min-width: 150px; max-width: 150px; text-align: center;border-right: 1px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Gabarito</th>
                             <th style="width: 150px; min-width: 150px; max-width: 150px; text-align: center;border-right: 1px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8);">Seu resultado</th>
                             <th style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-top-right-radius: 10px;border-right: 0px solid rgba(158, 8, 158, 0.8);border-top: 0px solid rgba(158, 8, 158, 0.8)">Média geral</th>
                         </tr>
@@ -475,8 +476,9 @@ def tabela_questoes(df):
             st.markdown(f"""
             <tr style="text-align: center; background-color: {background_color};">
                 <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Número da questão']}</td>
-                <td style="width: 250px; min-width: 250px; max-width: 250px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Área do conhecimento']}</td>
-                <td style="width: 350px; min-width: 350px; max-width: 350px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Assunto']}</td>
+                <td style="width: 200px; min-width: 200px; max-width: 200px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Área do conhecimento']}</td>
+                <td style="width: 300px; min-width: 300px; max-width: 300px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Assunto']}</td>
+                <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Gabarito']}</td>
                 <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Resultado Individual']}</td>
                 <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Resultado Geral']}</td>
             </tr>
@@ -500,8 +502,9 @@ def tabela_questoes(df):
             st.markdown(f"""
             <tr style="text-align: center; background-color: {background_color};">
                 <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Número da questão']}</td>
-                <td style="width: 250px; min-width: 250px; max-width: 250px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Área do conhecimento']}</td>
-                <td style="width: 350px; min-width: 350px; max-width: 350px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Assunto']}</td>
+                <td style="width: 200px; min-width: 200px; max-width: 200px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Área do conhecimento']}</td>
+                <td style="width: 300px; min-width: 300px; max-width: 300px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Assunto']}</td>
+                <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Gabarito']}</td>
                 <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Resultado Individual']}</td>
                 <td style="width: 150px; min-width: 150px; max-width: 150px; text-align: center; border-bottom: 1px solid #FFFFFF; padding: 10px; height: 40px; border-left: 1px solid white; border-right: 1px solid white;">{row['Resultado Geral']}</td>
             </tr>
@@ -1065,9 +1068,14 @@ def criar_histograma_acertos(resultados, nome_aluno, limite_max):
     
     # 1. Filtrar a linha do aluno
     nome_do_aluno = nome_aluno['Nome do aluno(a)'].iloc[0]
-    resultados = resultados[resultados['Acerto'] > 0]
+    if 'Fez questão' in resultados.columns:
+        resultados = resultados[resultados['Fez questão'] > 0]
+    else:
+        resultados = resultados[resultados['Nota na questão'] > 0]
 
-    if limite_max < 1000:
+
+
+    if limite_max < 100:
 
         st.markdown('<div style="height: 20px;"></div>', unsafe_allow_html=True)
 
@@ -1083,7 +1091,8 @@ def criar_histograma_acertos(resultados, nome_aluno, limite_max):
         acerto_aluno = resultados[resultados['Nome do aluno(a)'] == nome_do_aluno]['Acerto'].iloc[0]
 
         # 2. Calcular a média dos acertos
-        resultados_filtrados = resultados[resultados['Fez questão'] > limite_max*60/72]
+
+        resultados_filtrados = resultados#[resultados['Fez questão'] > limite_max*40/60]
 
             # Calculando as médias
         media_acertos = resultados_filtrados['Acerto'].mean()
@@ -1096,7 +1105,7 @@ def criar_histograma_acertos(resultados, nome_aluno, limite_max):
         fig.add_trace(go.Histogram(
             x=resultados['Acerto'],
             name='Acertos',
-            nbinsx=20,  # Número de bins no histograma, ajuste conforme necessário
+            nbinsx=15,  # Número de bins no histograma, ajuste conforme necessário
             marker_color='rgba(158, 8, 158, 0.8)',  # Cor das barras do histograma
             opacity=0.75
         ))
@@ -1119,21 +1128,21 @@ def criar_histograma_acertos(resultados, nome_aluno, limite_max):
             annotation=dict(font_size=12, yshift=15)  # Move a anotação um pouco para cima
         )
 
-        fig.add_vline(
-            x=media_acertos_jazz,
-            line=dict(color='green', width=3, dash='dash'),
-            annotation_text=f'Média Jazz: {media_acertos_jazz:.1f}',  # Texto na linha
-            annotation_position="top",  # Posição da anotação
-            annotation=dict(font_size=12, yshift=30)  # Move a anotação um pouco para cima
-        )
+        #fig.add_vline(
+        #    x=media_acertos_jazz,
+        #    line=dict(color='green', width=3, dash='dash'),
+        #    annotation_text=f'Média Jazz: {media_acertos_jazz:.1f}',  # Texto na linha
+        #    annotation_position="top",  # Posição da anotação
+        #    annotation=dict(font_size=12, yshift=30)  # Move a anotação um pouco para cima
+        #)
 
-        fig.add_vline(
-            x=media_acertos_fora_jazz,
-            line=dict(color='orange', width=3, dash='dash'),
-            annotation_text=f'Média Sem Jazz: {media_acertos_fora_jazz:.1f}',  # Texto na linha
-            annotation_position="top",  # Posição da anotação
-            annotation=dict(font_size=12, yshift=45)  # Move a anotação um pouco para cima
-        )
+        #fig.add_vline(
+        #    x=media_acertos_fora_jazz,
+        #    line=dict(color='orange', width=3, dash='dash'),
+        #    annotation_text=f'Média Sem Jazz: {media_acertos_fora_jazz:.1f}',  # Texto na linha
+        #    annotation_position="top",  # Posição da anotação
+        #    annotation=dict(font_size=12, yshift=45)  # Move a anotação um pouco para cima
+        #)
 
         # 6. Configurações do layout
         fig.update_layout(
@@ -1169,7 +1178,7 @@ def criar_histograma_acertos(resultados, nome_aluno, limite_max):
         fig.add_trace(go.Histogram(
             x=resultados['Nota na questão'],
             name='Nota',
-            nbinsx=20,  # Número de bins no histograma, ajuste conforme necessário
+            nbinsx=14,  # Número de bins no histograma, ajuste conforme necessário
             marker_color='rgba(158, 8, 158, 0.8)',  # Cor das barras do histograma
             opacity=0.75
         ))
@@ -1192,21 +1201,21 @@ def criar_histograma_acertos(resultados, nome_aluno, limite_max):
             annotation=dict(font_size=12, yshift=15)  # Move a anotação um pouco para cima
         )
 
-        fig.add_vline(
-            x=media_acertos_jazz,
-            line=dict(color='green', width=3, dash='dash'),
-            annotation_text=f'Média Jazz: {media_acertos_jazz:.1f}',  # Texto na linha
-            annotation_position="top",  # Posição da anotação
-            annotation=dict(font_size=12, yshift=30)  # Move a anotação um pouco para cima
-        )
+        #fig.add_vline(
+        #    x=media_acertos_jazz,
+        #    line=dict(color='green', width=3, dash='dash'),
+        #    annotation_text=f'Média Jazz: {media_acertos_jazz:.1f}',  # Texto na linha
+        #    annotation_position="top",  # Posição da anotação
+        #    annotation=dict(font_size=12, yshift=30)  # Move a anotação um pouco para cima
+        #)
 
-        fig.add_vline(
-            x=media_acertos_fora_jazz,
-            line=dict(color='orange', width=3, dash='dash'),
-            annotation_text=f'Média Sem Jazz: {media_acertos_fora_jazz:.1f}',  # Texto na linha
-            annotation_position="top",  # Posição da anotação
-            annotation=dict(font_size=12, yshift=45)  # Move a anotação um pouco para cima
-        )
+        #fig.add_vline(
+        #    x=media_acertos_fora_jazz,
+        #    line=dict(color='orange', width=3, dash='dash'),
+        #    annotation_text=f'Média Sem Jazz: {media_acertos_fora_jazz:.1f}',  # Texto na linha
+        #    annotation_position="top",  # Posição da anotação
+        #    annotation=dict(font_size=12, yshift=45)  # Move a anotação um pouco para cima
+        #)
 
         # 6. Configurações do layout
         fig.update_layout(
@@ -1303,11 +1312,11 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         if (turma == 'Manhã' or turma == 'Tarde' or turma_aluno == 'Manhã' or turma_aluno == 'Tarde'):
 
-            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03']# + ['Simulado Insper 04'] + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
+            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Nacional Insper']# + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
 
         elif (turma == 'Esparta 2º' or turma_aluno == 'Esparta 2º'):
 
-            simulados = ["Escolha o simulado"] + ['Simulado 01'] + ['Simulado 02'] + ['Simulado 03'] + ['Simulado 04'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado 05'] + ['Simulado 06'] + ['Simulado 07']
+            simulados = ["Escolha o simulado"] + ['Simulado Nacional Insper']# + ['Simulado Nacional FGV'] ['Simulado 01'] + ['Simulado 02'] + ['Simulado 03'] + ['Simulado 04'] + ['Simulado 05'] + ['Simulado 06'] + ['Simulado 07']
 
         elif (turma == 'Esparta 3º' or turma_aluno == 'Esparta 3º 1' or turma_aluno == 'Esparta 3º 2'):
 
@@ -1315,7 +1324,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         elif (turma_aluno == 'Turma do Simulado Nacional'):
 
-            simulados = ["Escolha o simulado"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
+            simulados = ["Escolha o simulado"] + ["Simulado Nacional Insper"]# + ['Simulado Nacional FGV']
 
         simulado_selecionado = st.selectbox('Selecione o simulado:', simulados)
 
@@ -1363,8 +1372,8 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         elif simulado_selecionado == 'Simulado Nacional Insper':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 06!A1:L14000")
-            base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 06!A1:J4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 04!A1:M22000")
+            base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 04!A1:J22000")
 
         elif simulado_selecionado == 'Simulado FGV 01':
 
@@ -1616,7 +1625,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
     else:
 
-        simulados = ["Escolha o simulado"] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV']
+        simulados = ['Simulado Nacional Insper']# + ['Simulado Nacional FGV']
 
         simulado_selecionado2 = st.selectbox('Selecione o simulado:', simulados)
 
@@ -1632,8 +1641,8 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
             simulado_selecionado = 'Simulado Nacional Insper'
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 06!A1:L24000")
-            base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 06!A1:J22000")  
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 04!A1:M24000")
+            base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 04!A1:J22000")  
 
         else:
 
@@ -1701,6 +1710,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
     if (nome_selecionado != 'Escolha o(a) aluno(a)' and simulado_selecionado != 'Escolha o simulado'):
 
         base_resultados_simu_selecionado = base_resultados.copy()
+
         #base_resultados_simu_selecionado = base_resultados[base_resultados['Simulado'] == simulado_selecionado]
         base_resultados_simu_selecionado = base_resultados_simu_selecionado[base_resultados_simu_selecionado['num_exercicio'] != "61"].reset_index(drop = True) 
 
@@ -2043,7 +2053,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 else:
 
-                    resultados_gerais5_60 = resultados_gerais5[resultados_gerais5['Fez questão'] > 60]
+                    resultados_gerais5_60 = resultados_gerais5#[resultados_gerais5['Fez questão'] > 40]
 
                     cards_principais(int(round(resultados_gerais_aluno['Novo Nota na questão'][0],1)/10), int(round(truncar(resultados_gerais5_60['Novo Nota na questão'].mean()/10,-1))), int(round(truncar(resultados_gerais_aluno['Acerto'][0],0),0)), int(round(resultados_gerais5_60['Acerto'].mean(),0)),'Simulado Nacional Insper 1ª fase Total', str(int(round(truncar(resultados_gerais_aluno['Classificação'][0],0),0)))+'º',int(len(resultados_gerais5['index'])), 0)
 
@@ -2082,7 +2092,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
             if simulado_selecionado == 'Simulado Nacional Insper':
 
-                criar_histograma_acertos(resultados_gerais3, nome_aluno3, 72)
+                criar_histograma_acertos(resultados_gerais3, nome_aluno3, 60)
 
             if simulado_selecionado == 'Simulado Nacional FGV':
 
@@ -2098,7 +2108,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
             resultados_gerais_disciplina_aux = base_alunos_fizeram_aux2.groupby(['Turma','Login do aluno(a)','Nome do aluno(a)','Disciplina','Simulado','Estratégia']).sum().reset_index()
 
-            resultados_gerais_disciplina = resultados_gerais_disciplina_aux[resultados_gerais_disciplina_aux['Acerto'] > 0]
+            resultados_gerais_disciplina = resultados_gerais_disciplina_aux[resultados_gerais_disciplina_aux['Acerto'] >= 0]
 
             resultados_gerais_disciplina2 = resultados_gerais_disciplina#.drop(columns = ['Número da questão'])
 
@@ -2246,7 +2256,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     else:
 
-                        resultados_gerais_disciplina_med_mat_20 = resultados_gerais_disciplina3_mat[resultados_gerais_disciplina3_mat['Fez questão'] > 20]
+                        resultados_gerais_disciplina_med_mat_20 = resultados_gerais_disciplina3_mat[resultados_gerais_disciplina3_mat['Fez questão'] > 10]
 
                         cards_principais(int(round(resultados_matematica['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_mat_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_matematica['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_mat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_mat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_mat['Classificação']))), 0)              
 
@@ -2279,7 +2289,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
-                    criar_histograma_acertos(resultados_gerais_disciplina3_mat, nome_aluno3, 24)
+                    criar_histograma_acertos(resultados_gerais_disciplina3_mat, nome_aluno3, 15)
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
 
@@ -2372,7 +2382,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     else:
 
-                        resultados_gerais_disciplina_med_lin_20 = resultados_gerais_disciplina3_lin[resultados_gerais_disciplina3_lin['Fez questão'] > 20]
+                        resultados_gerais_disciplina_med_lin_20 = resultados_gerais_disciplina3_lin[resultados_gerais_disciplina3_lin['Fez questão'] > 10]
 
                         cards_principais(int(round(resultados_linguagens['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_lin_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_linguagens['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_lin_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_lin_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_lin['Classificação']))), 0)      
 
@@ -2406,7 +2416,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
-                    criar_histograma_acertos(resultados_gerais_disciplina3_lin, nome_aluno3, 24)
+                    criar_histograma_acertos(resultados_gerais_disciplina3_lin, nome_aluno3, 15)
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
 
@@ -2630,7 +2640,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                     else:
 
-                        resultados_gerais_disciplina_med_hum_20 = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Fez questão'] > 20]
+                        resultados_gerais_disciplina_med_hum_20 = resultados_gerais_disciplina3_hum[resultados_gerais_disciplina3_hum['Fez questão'] > 10]
 
                         cards_principais(int(round(resultados_ciencias_hum['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_ciencias_hum['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_hum_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_hum_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_hum['Classificação']))), 0)      
 
@@ -2659,7 +2669,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
 
-                        criar_histograma_acertos(resultados_gerais_disciplina3_hum, nome_aluno3, 24)
+                        criar_histograma_acertos(resultados_gerais_disciplina3_hum, nome_aluno3, 15)
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
 
@@ -2753,8 +2763,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                         cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Insper', '0', '0', 0)
 
                     else:
-
-                        resultados_gerais_disciplina_med_nat_20 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 20]
+                        resultados_gerais_disciplina_med_nat_20 = resultados_gerais_disciplina3_nat[resultados_gerais_disciplina3_nat['Fez questão'] > 10]
 
                         cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Nota na questão'].mean()/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat_20['Acerto'].mean(),-1),0)),'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_disciplina3_nat_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_disciplina3_nat['Classificação']))), 0)      
                 '''
@@ -2782,8 +2791,8 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                         cards_principais(int(round(resultados_ciencias_nat['Nota na questão'][0]/10,1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Nota na questão'][0]/10,-1),0)), int(round(resultados_ciencias_nat['Acerto'][0],1)), int(round(truncar(resultados_gerais_disciplina_med_nat['Acerto'][0],-1),0)),'Esparta 2º', '0', '0', simulado_selecionado[-1]+' Humanas')
 
                 if simulado_selecionado == 'Simulado Nacional Insper':
-
-                        criar_histograma_acertos(resultados_gerais_disciplina3_nat, nome_aluno3, 24)
+                        
+                        criar_histograma_acertos(resultados_gerais_disciplina3_nat, nome_aluno3, 15)
 
                 if simulado_selecionado == 'Simulado Nacional FGV':
 
@@ -2814,6 +2823,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                 base_redacao['Valor da questão'] = (
                 base_redacao['Valor da questão'].str.replace(',', '.', regex=False).astype(float)
                 )
+
 
                 for i in range(len(base_redacao)):
                     base_redacao['Acerto'][i] = base_redacao['Nota na questão'][i]/base_redacao['Valor da questão'][i]
@@ -2900,9 +2910,9 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                                 )
 
                     base_redacao3 = base_redacao2.groupby(['Login do aluno(a)','Nome do aluno(a)','Estratégia']).sum().reset_index()
-                    for i in range(len(base_redacao3['Nota na questão'])):
-                        if base_redacao3['Nota na questão'][i] > 0:
-                            base_redacao3['Nota na questão'][i] = 200 + 0.8*base_redacao3['Nota na questão'][i]
+                    #for i in range(len(base_redacao3['Nota na questão'])):
+                    #    if base_redacao3['Nota na questão'][i] > 0:
+                    #        base_redacao3['Nota na questão'][i] = 200 + 0.8*base_redacao3['Nota na questão'][i]
                     base_redacao4 = base_redacao3[base_redacao3['Login do aluno(a)'] == login_aluno]
                     base_redacao3aux = base_redacao3[base_redacao3['Nota na questão'] > 0]
 
@@ -2919,15 +2929,15 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                             cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(100*round(redacao_tabela3['Resultado Geral decimal'].mean(),2)), 0, 0, 'Insper', '0', '0', 0)
                         else:
 
-                            cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(100*round(redacao_tabela3['Resultado Geral decimal'].mean(),1)), 0, 0, 'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_redacao_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_redacao['Classificação']))), 0)              
+                            cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(100*round(redacao_tabela3['Resultado Geral decimal'].mean(),2))-1, 0, 0, 'Simulado Nacional Insper 1ª fase', str(int(round(truncar(resultados_gerais_redacao_aluno['Classificação'][0],-1),0)))+"º", str(int(len(resultados_gerais_redacao['Classificação']))), 0)              
 
                     if "FGV" in simulado_selecionado:
         
                         cards_principais(int(round(redacao_aluno_media['Nota na questão'].sum(),1)), int(round(redacao_tabela3['Resultado Geral decimal'].mean(),0)), 0, 0, 'FGV', '0', '0', 0)
 
                     if simulado_selecionado == 'Simulado Nacional Insper':
-
-                        criar_histograma_acertos(resultados_gerais_redacao, nome_aluno3, 1000)
+                        
+                        criar_histograma_acertos(resultados_gerais_redacao, nome_aluno3, 100.01)
 
                     redacao_tabela3 = redacao_tabela3.dropna()
 
@@ -2963,7 +2973,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
                 tabela_detalhes_aluno5 = tabela_detalhes_aluno3.drop(columns = ['Nome da avaliação','Turma'])
                 tabela_detalhes_aluno4 = tabela_detalhes_aluno5.sort_values(by = 'Número da questão', ascending = True).reset_index()
 
-                tabela_detalhes_aluno4 = tabela_detalhes_aluno4[['Número da questão','Disciplina','Assunto','Acerto_x','Acerto_y']]
+                tabela_detalhes_aluno4 = tabela_detalhes_aluno4[['Número da questão','Disciplina','Assunto','Acerto_x','Acerto_y','Gabarito']]
                 tabela_detalhes_aluno4.rename(columns = {'Disciplina':'Área do conhecimento','Acerto_x':'Resultado Individual','Acerto_y':'Resultado Geral','Tempo na questão_x':'Tempo na questão','Tempo na questão_y':'Média geral'}, inplace = True)
                     
                 st.markdown('<div style="height: 50px;"></div>', unsafe_allow_html=True)
