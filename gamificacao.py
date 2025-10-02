@@ -632,7 +632,7 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     elapsed_time = end_time - start_time
     update_progress(20)
 
-    presenca_aulasE2N = ler_planilha("1bLUt5GVLDidmUnYN_ZbxdKQL5vsYeJep4lJDEoWayOk", "Streamlit | Presença nas aulas | Esparta 2º + Natureza!A1:R")
+    presenca_aulasE2N = ler_planilha("11ltJ8b3IV7x-UTBOPA-eMYTLVxgBReDiX35XGYEcd1w", "Streamlit | Presença nas aulas | Esparta 2º + Natureza!A1:R")
     #presenca_aulasNT1 = ler_planilha("10ocwUa69s-3c_FMpNMWq6CRooGooa0-9K19rFwm8oEo", "Streamlit | Presença nas aulas | Tarde 1 (Nat)!A1:R")
     #presenca_aulasNT1 = ler_planilha("1rq83WLY5Wy6jZMtf54oB2wfhibq_6MywEcVV9SK60oI", "Streamlit | Presença nas aulas | Tarde 1 (Nat)!A1:R")
 
