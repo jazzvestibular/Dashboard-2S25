@@ -1340,11 +1340,11 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
             simulados = ["Escolha o simulado"] + ['Simulado 01'] + ['Simulado 02'] + ['Simulado 03'] + ['Simulado 04'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado 05'] + ['Simulado 06'] + ['Simulado 07']
 
-        elif (turma_aluno == 'Turma do Simulado Nacional'):
+        elif (turma == 'Turma do Simulado Nacional' or turma_aluno == 'Turma do Simulado Nacional'):
 
             simulados = ["Escolha o simulado"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
 
-        elif(turma_aluno == 'Revisão Online' or turma_aluno == 'Revisão Presencial'):
+        elif(turma == 'Revisão Online' or turma == 'Revisão Presencial' or turma_aluno == 'Revisão Online' or turma_aluno == 'Revisão Presencial'):
 
             simulados = ["Escolha o simulado"] + ["Simulado FGV 05"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
 
