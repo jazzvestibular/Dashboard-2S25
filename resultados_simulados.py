@@ -1278,6 +1278,8 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
         alunos = alunos[alunos['Turma'].str.contains("Esparta 3º")]
     elif (turma == None or turma == "-"):
         alunos = alunos
+    elif "Revisão" in turma:
+        alunos = alunos[alunos['Turma'].str.contains("Revisão")]
     else:
         alunos = alunos[~alunos['Turma'].str.contains("Esparta")]
 
@@ -1328,7 +1330,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         if (turma == 'Manhã' or turma == 'Tarde' or turma_aluno == 'Manhã' or turma_aluno == 'Tarde'):
 
-            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV']# + ['Simulado FGV 04'] + ['Simulado Insper 05'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
+            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado FGV 05'] + ['Simulado Insper 05']# + ['Simulado Insper 07'] + ['Simulado FGV 06'] + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
 
         elif (turma == 'Esparta 2º' or turma_aluno == 'Esparta 2º'):
 
@@ -1342,6 +1344,10 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
             simulados = ["Escolha o simulado"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
 
+        elif(turma_aluno == 'Revisão Online' or turma_aluno == 'Revisão Presencial'):
+
+            simulados = ["Escolha o simulado"] + ["Simulado FGV 05"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
+
         simulado_selecionado = st.selectbox('Selecione o simulado:', simulados)
 
         if simulado_selecionado == 'Escolha o simulado':
@@ -1353,27 +1359,27 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         if simulado_selecionado == 'Simulado Insper 01':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 01!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 01!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 01!A1:J22000")
 
         elif simulado_selecionado == 'Simulado Insper 02':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 02!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 02!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 02!A1:J22000")
 
         elif simulado_selecionado == 'Simulado Insper 03':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 03!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 03!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 03!A1:J22000")
 
         elif simulado_selecionado == 'Simulado Insper 04':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 04!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 04!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 04!A1:J22000")
 
         elif simulado_selecionado == 'Simulado Insper 05':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 05!A1:L22000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 05!A1:M22000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 05!A1:J22000")
 
         elif simulado_selecionado == 'Simulado Insper 06':
@@ -1398,23 +1404,23 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         elif simulado_selecionado == 'Simulado FGV 01':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 01!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 01!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | FGV 01!A1:J4000")
 
         elif simulado_selecionado == 'Simulado FGV 02':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 02!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 02!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | FGV 02!A1:J4000")
 
         elif simulado_selecionado == 'Simulado FGV 03':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 03!A1:L4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 03!A1:M4000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | FGV 03!A1:J4000")
 
-        elif simulado_selecionado == 'Simulado FGV 04':
+        elif simulado_selecionado == 'Simulado FGV 05':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 04!A1:L4000")
-            base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | FGV 04!A1:J4000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | FGV 05!A1:M4000")
+            base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | FGV 05!A1:J4000")
 
         elif simulado_selecionado == 'Simulado Nacional FGV':
 
@@ -1509,16 +1515,16 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
         progress_bar.progress(0.10)
         percentage_text.text("10%")
 
-        base_resultados_insper1 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 01!A1:L4000")
+        base_resultados_insper1 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 01!A1:M4000")
 
         progress_bar.progress(0.15)
         percentage_text.text("15%")
 
-        base_resultados_insper2 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 02!A1:L4000")
+        base_resultados_insper2 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 02!A1:M4000")
 
-        base_resultados_insper3 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 03!A1:L4000")
+        base_resultados_insper3 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 03!A1:M4000")
 
-        base_resultados_insper4 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 04!A1:L4000")
+        base_resultados_insper4 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 04!A1:M4000")
 
         base_resultados_insper5 = ler_planilha("1iLxsOaDPsyraduRGj_kZWmuEMRqo5VSGURKWuXD40M8", "RelSimulado | Insper 05!A1:L24000")
 

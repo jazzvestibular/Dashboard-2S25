@@ -566,12 +566,15 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     if (turma is None or turma == "-"):
             alunos = alunos
 
-            turmas = st.selectbox('Selecione a turma:', ['Extensivo','Esparta'])
+            turmas = st.selectbox('Selecione a turma:', ['Extensivo','Esparta','Revisão'])
 
             if turmas == 'Extensivo':
                 alunos = alunos[~alunos['Turma'].str.contains("Esparta")]
+                alunos = alunos[~alunos['Turma'].str.contains("Revisão")]
             if turmas == 'Esparta':
                 alunos = alunos[alunos['Turma'].str.contains("Esparta")]
+            if turmas == 'Revisão':
+                alunos = alunos[alunos['Turma'].str.contains("Revisão")]
 
     elif "Esparta 2º" in turma:
             turmas = 'Esparta 2º'
@@ -579,9 +582,13 @@ def mostrar_gamificacao(nome, permissao, email, turma):
     elif "Esparta 3º" in turma:
             turmas = 'Esparta 3º'
             alunos = alunos[alunos['Turma'].str.contains("Esparta 3º")]
+    elif "Revisão" in turma:
+            turmas = 'Revisão'
+            alunos = alunos[alunos['Turma'].str.contains("Revisão")]
     else:
             turmas = 'Extensivo'
             alunos = alunos[~alunos['Turma'].str.contains("Esparta")]
+            alunos = alunos[~alunos['Turma'].str.contains("Revisão")]
 
     alunos['Nome'] = alunos['Nome'].fillna('').astype(str)
     alunos = alunos[alunos['Nome'] != '']
@@ -858,6 +865,9 @@ def mostrar_gamificacao(nome, permissao, email, turma):
             #pont_niveis = [600, 1300, 2200, 3200, 4300, 5600]
             pont_niveis = [600, 1300, 2200, 3400, 4700, 7200]
         if (turmas == 'Esparta 2º' or turmas == 'Esparta 3º' or turmas == 'Esparta'):
+            pont_niveis = [400, 800, 1300, 2000, 2600, 3400]
+
+        if (turmas == 'Revisão Presencial' or turmas == 'Revisão Online' or turmas == 'Revisão'):
             pont_niveis = [400, 800, 1300, 2000, 2600, 3400]
 
         gamificacao3['Nível'] = gamificacao3['Pontuação'].apply(definir_nivel, args=(pont_niveis[0], pont_niveis[1], pont_niveis[2], pont_niveis[3], pont_niveis[4], pont_niveis[5]))
