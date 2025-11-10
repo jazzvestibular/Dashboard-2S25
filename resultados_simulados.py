@@ -1330,7 +1330,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         if (turma == 'Manhã' or turma == 'Tarde' or turma_aluno == 'Manhã' or turma_aluno == 'Tarde'):
 
-            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado FGV 05'] + ['Simulado Insper 05'] + ['Simulado FGV 06']# + ['Simulado Insper 08'] #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
+            simulados = ["Escolha o simulado"] + ['Simulado Semana 01'] + ['Simulado Insper 01'] + ['Simulado FGV 01'] + ['Simulado Insper 02'] + ['Simulado FGV 02'] + ['Simulado Insper 03'] + ['Simulado FGV 03'] + ['Simulado Nacional Insper'] + ['Simulado Nacional FGV'] + ['Simulado FGV 05'] + ['Simulado Insper 05'] + ['Simulado FGV 06'] + ['Simulado Insper 06']# #+ ['Simulado FGV 01'] + ['Simulado FGV 02'] + ['Simulado FGV 03'] + ['Simulado FGV 04'] + ['Simulado FGV 05'] + ['Simulado FGV 06']
 
         elif (turma == 'Esparta 2º' or turma_aluno == 'Esparta 2º'):
 
@@ -1346,7 +1346,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         elif(turma == 'Revisão Online' or turma == 'Revisão Presencial' or turma_aluno == 'Revisão Online' or turma_aluno == 'Revisão Presencial'):
 
-            simulados = ["Escolha o simulado"] + ["Simulado FGV 05"] + ["Simulado FGV 06"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
+            simulados = ["Escolha o simulado"] + ["Simulado FGV 05"] + ["Simulado FGV 06"] + ["Simulado Insper 06"] + ["Simulado Nacional Insper"] + ['Simulado Nacional FGV']
 
         simulado_selecionado = st.selectbox('Selecione o simulado:', simulados)
 
@@ -1384,7 +1384,7 @@ def mostrar_resultados_simulados(nome, permissao, email, turma):
 
         elif simulado_selecionado == 'Simulado Insper 06':
 
-            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 06!A1:L22000")
+            base_resultados = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "RelSimulado | Insper 06!A1:M22000")
             base_redacao = ler_planilha("1-han5cwytzetPhBqd3AHvLrJsYW0eiwv5FwA5s8Pibo", "Red | Insper 06!A1:J22000")
         
         elif simulado_selecionado == 'Simulado Insper 07':
